@@ -1,19 +1,25 @@
-name: git actions 연동
-run-name: git actions 연동
+name: e2e test
+run-name: e2e test
 on: pull_request
 jobs:
-  React-Testing-Library:
+  Cypress:
     runs-on: ubuntu-latest
     steps:
       - name: 사용할 코드 브랜치로 이동
         uses: actions/checkout@v4
+
       - name: 사용할 노드 버전 설치
         uses: actions/setup-node@v3
         with:
           node-version: '18.18.0'
+
       - name: install libraries
         run: npm install
-      - name: build project
-        run: npm run build
-      - name: test
-        run: npm run test
+        
+      - name: e2e test
+        uses: cypress-io/github-action@v6
+        with:
+            browser: chrome
+            start: npm run start
+            command: npm run cypress
+      
