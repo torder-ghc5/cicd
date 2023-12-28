@@ -13,12 +13,10 @@ jobs:
         with:
           node-version: '18.18.0'
 
-      - name: install libraries
-        run: npm install
-
       - name: e2e test
         uses: cypress-io/github-actions@v4
         with:
+            install: npm install
             build: npm run build
             start: npm run cypress
       
