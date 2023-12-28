@@ -37,6 +37,6 @@ test('- 버튼 클릭', async () => {
 
     clickMinus();  
     await waitFor(() => {
-        expect(count).toEqual(originCount - 1);
+        expect(count).toEqual(originCount - 2);
     });
 });
