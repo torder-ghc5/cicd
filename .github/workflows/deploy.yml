@@ -2,18 +2,31 @@ name: git actions 연동
 run-name: git actions 연동
 on: pull_request
 jobs:
-  React-Testing-Library:
+  Settings:
     runs-on: ubuntu-latest
     steps:
       - name: 사용할 코드 브랜치로 이동
         uses: actions/checkout@v4
+
       - name: 사용할 노드 버전 설치
         uses: actions/setup-node@v3
         with:
           node-version: '18.18.0'
+
       - name: install libraries
         run: npm install
+
       - name: build project
         run: npm run build
-      - name: test
+
+  React-Testing-Library:
+    runs-on: ubuntu-latest
+    steps:
+      - name: components test
         run: npm run test
+  Cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: e2e test
+        run: npm run cypress
+      
