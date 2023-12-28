@@ -1,8 +1,8 @@
-name: component test
-run-name: component test
+name: e2e test
+run-name: e2e test
 on: pull_request
 jobs:
-  React-Testing-Library:
+  Cypress:
     runs-on: ubuntu-latest
     steps:
       - name: 사용할 코드 브랜치로 이동
@@ -16,9 +16,9 @@ jobs:
       - name: install libraries
         run: npm install
 
-      - name: build project
-        run: npm run build
-        
       - name: e2e test
-        run: npm run cypress
+        uses: cypress-io/github-actions@v4
+        with:
+            build: npm run build
+            start: npm run cypress
       
