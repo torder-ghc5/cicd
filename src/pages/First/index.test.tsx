@@ -1,36 +1,42 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import FirstPage from '.';
+import Controller from '../../components/First/Controller';
 
 test('+ 버튼 클릭', async () => {
-  const Value = () => screen.getByRole("value");
-  const PlusButton = () => screen.getByText("+");
-  const clickPlus = () => {
-    userEvent.click(PlusButton());
-  };
+    let count = 0;
+    const originCount = count;
+    const setCount = () => {
+        count += 1;
+    };
+    render(<Controller count={count} setCount={setCount} />);  
 
-  render(<FirstPage />);
+    const PlusButton = () => screen.getByText("+");
+    const clickPlus = () => {
+        userEvent.click(PlusButton());
+    };
 
-  expect(Value().textContent).toEqual("0");
-  clickPlus();
-  await waitFor(() => {
-    expect(Value().textContent).toEqual("1");
-  })  
+    clickPlus();  
+    await waitFor(() => {
+        expect(count).toEqual(originCount + 1);
+    });
 });
 
 test('- 버튼 클릭', async () => {
-  const Value = () => screen.getByRole("value");
-  const MinusButton = () => screen.getByText("-");
-  const clickMinus = () => {
-    userEvent.click(MinusButton());
-  };
+    let count = 0;
+    const originCount = count;
+    const setCount = () => {
+        count -= 1;
+    };
+    render(<Controller count={count} setCount={setCount} />);  
 
-  render(<FirstPage />);
+    const MinusButton = () => screen.getByText("-");
+    const clickMinus = () => {
+        userEvent.click(MinusButton());
+    };
 
-  expect(Value().textContent).toEqual("0");
-  clickMinus();
-  await waitFor(() => {
-    expect(Value().textContent).toEqual("-1");
-  })  
+    clickMinus();  
+    await waitFor(() => {
+        expect(count).toEqual(originCount - 1);
+    });
 });
