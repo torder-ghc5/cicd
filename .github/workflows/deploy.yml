@@ -5,6 +5,8 @@ jobs:
   React-Testing-Library:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
       - name: react testing library
         run: |
           npm install
