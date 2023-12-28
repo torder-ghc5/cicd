@@ -21,11 +21,14 @@ jobs:
 
   React-Testing-Library:
     runs-on: ubuntu-latest
+    needs: Settings
     steps:
       - name: components test
         run: npm run test
+
   Cypress:
     runs-on: ubuntu-latest
+    needs: Settings
     steps:
       - name: e2e test
         run: npm run cypress
