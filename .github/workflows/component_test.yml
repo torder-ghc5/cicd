@@ -1,6 +1,11 @@
 name: component test
 run-name: component test
-on: pull_request
+on: 
+  pull_request:
+    branches: 
+      - feature/test
+    types:
+      - closed
 jobs:
   React-Testing-Library:
     runs-on: ubuntu-latest
