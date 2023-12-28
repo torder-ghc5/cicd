@@ -16,6 +16,7 @@ jobs:
       - name: e2e test
         uses: cypress-io/github-action@v6
         with:
+            browser: chrome
             install: npm install
             project-start: npm run start
             cypress-start: npm run cypress
