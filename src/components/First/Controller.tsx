@@ -15,10 +15,10 @@ function Controller({ count, setCount }: Props) {
     };
 
     return (
-        <div className="Wrapper">
-            <button onClick={onClickMinus}>-</button>
+        <div className="Controller_Wrapper">
+            <button className="Controller_Button" onClick={onClickMinus}>-</button>
             <div>{count}</div>
-            <button onClick={onClickPlus}>+</button>
+            <button className="Controller_Button" onClick={onClickPlus}>+</button>
         </div>
     )
 };

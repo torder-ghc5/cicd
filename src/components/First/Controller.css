@@ -1,4 +1,13 @@
-.Wrapper {
+.Controller_Wrapper {
     display: flex;
     gap: 20px;
+}
+
+.Controller_Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
 }
