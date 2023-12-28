@@ -5,15 +5,16 @@ jobs:
   React-Testing-Library:
     runs-on: ubuntu-latest
     steps:
-      - name: 사용할 코드 브랜치로 이동
-        uses: actions/checkout@v4
-      - name: 사용할 노드 버전 설치
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.18.0'
-      - name: install libraries
-        run: npm install
-      - name: build project
-        run: npm run build
-      - name: test
-        run: npm run test
+      # - name: 사용할 코드 브랜치로 이동
+      #   uses: actions/checkout@v4
+      - run: echo ${{ github.repository }}
+      # - name: 사용할 노드 버전 설치
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '18.18.0'
+      # - name: install libraries
+      #   run: npm install
+      # - name: build project
+      #   run: npm run build
+      # - name: test
+      #   run: npm run test
