@@ -1,8 +1,8 @@
-name: git actions 연동
-run-name: git actions 연동
+name: component test
+run-name: component test
 on: pull_request
 jobs:
-  Settings:
+  React-Testing-Library:
     runs-on: ubuntu-latest
     steps:
       - name: 사용할 코드 브랜치로 이동
@@ -18,18 +18,7 @@ jobs:
 
       - name: build project
         run: npm run build
-
-  React-Testing-Library:
-    runs-on: ubuntu-latest
-    needs: Settings
-    steps:
-      - name: components test
-        run: npm run test
-
-  Cypress:
-    runs-on: ubuntu-latest
-    needs: Settings
-    steps:
+        
       - name: e2e test
         run: npm run cypress
       
