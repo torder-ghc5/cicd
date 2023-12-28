@@ -17,7 +17,7 @@ function Controller({ count, setCount }: Props) {
     return (
         <div className="Wrapper">
             <button onClick={onClickMinus}>-</button>
-            <div role="value">{count}</div>
+            <div>{count}</div>
             <button onClick={onClickPlus}>+</button>
         </div>
     )
