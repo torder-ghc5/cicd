@@ -13,11 +13,15 @@ jobs:
         with:
           node-version: '18.18.0'
 
+      - name: install libraries
+        run: npm install
+        
+      - name: run project
+        run: npm run start
+
       - name: e2e test
         uses: cypress-io/github-action@v6
         with:
             browser: chrome
-            install: npm install
-            project-start: npm run start
             cypress-start: npm run cypress
       
