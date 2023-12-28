@@ -18,7 +18,7 @@ test('+ 버튼 클릭', async () => {
 
     clickPlus();  
     await waitFor(() => {
-        expect(count).toEqual(originCount + 1);
+        expect(count).toEqual(originCount + 2);
     });
 });
 
